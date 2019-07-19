@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.UserMapper">
+
+<!--根据用户名查询数据条数-->
+    <!--根据用户查询数据条数-->
+    <select id="findCountUsername" resultType="integer">
+        select  count(1) from user where username=#{username}
+    </select>
+
+<!--添加用户信息-->
+    <insert id="save" parameterType="User">
+        insert into
+        user
+        (username,password,phone)
+        values
+        (#{username},#{password},#{phone})
+    </insert>
+    <!--User findByUsername(@Param("username")String username);-->
+<select id="findByUsername" resultType="com.qf.pojo.User">
+    select * from user where  username=#{username}
+</select>
+
+
+
+
+</mapper>
